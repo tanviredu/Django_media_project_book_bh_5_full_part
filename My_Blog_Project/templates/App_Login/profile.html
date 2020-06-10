@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %} Profile {% endblock title %}
+{% load static %}
+{% block content %}
+  <div class="card" style="width: 18rem;">
+<!-- check id the user profile pic is set or not
+    we can call the class of the user
+    with related name the UserProfile model
+    is related to the User class with  a related name user_profile it will directly call the class
+    we can call that
+-->
+  {% if user.user_profile %}
+
+     <img class="card-img-top" src="/media/{{user.user_profile.profile_pic}}" alt="Card image cap">
+    <h1></h1>
+  {% else %}
+  <img class="card-img-top" src="/media/profile_pics/no_profile.jpg" alt="Card image cap">
+
+  {% endif %}
+    <div class="card-body">
+      <h5 class="card-title">User Profile</h5>
+      <p class="card-text"></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Username : {{user.username}}</li>
+      <li class="list-group-item">Email : {{user.email}}</li>
+      <li class="list-group-item">Name : {{user.first_name}} {{user.last_name}}</li>
+    </ul>
+    <div class="card-body">
+      <a href="{% url 'App_login:user_change'%}" class="btn btn-info">Change User information</a>
+    <hr>
+      <a href="{% url 'App_login:add_pro_pic'%}" class="btn btn-danger">Add pics</a>
+
+      <hr>
+        <a href="{% url 'App_login:change_pro_pic'%}" class="btn btn-danger">Change pics</a>
+
+      <div class="card-body">
+      <hr>
+    </div>
+  </div>
+
+{% endblock %}

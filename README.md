@@ -1,2 +1,2 @@
-# Django_media_project_book_bh_5_full_part
-Django_media_project_book_bh_5_full_part
+# Django_media_project_book_bh_5
+Django_media_project_book_bh_5
